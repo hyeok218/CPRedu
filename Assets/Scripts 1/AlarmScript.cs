@@ -8,6 +8,7 @@ public class AlarmScript : MonoBehaviour
     public int cnt = 0;
     public GameObject talkPanel;
     public GameObject nextbtn;
+    public GameObject emergency;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,10 +27,9 @@ public class AlarmScript : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.F))
                 {
-                    
+                    emergency.SetActive(false);
                     if (cnt == 0)
                     {
-
                         talkPanel.SetActive(true);
                         Debug.Log(talkPanel.activeSelf);
                         cnt++;
