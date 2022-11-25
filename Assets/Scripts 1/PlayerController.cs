@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     public int s_cnt = 0;
     public int h_cnt = 0;
 
+    
+
 
 
     void Start()

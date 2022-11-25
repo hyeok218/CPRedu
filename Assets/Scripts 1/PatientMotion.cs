@@ -21,7 +21,7 @@ public class PatientMotion : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 15.0f))
         {
-            Debug.Log("범위안으로 들어옴");
+            //Debug.Log("범위안으로 들어옴");
             /*if (Input.GetKeyDown(KeyCode.w))
             {
                 */
