@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/SceneWoman.unity
     guid: 4413944595ca4ae4cac18e865039702b
   - enabled: 1
-    path: Assets/Scenes/SceneMan.unity
-    guid: 543d13e54e1efdf4d88c9add8096e354
+    path: Assets/Scenes/SceneLast.unity
+    guid: c9688c55646c2de48bf7f9834e90a3d9
   m_configObjects: {}
