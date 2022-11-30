@@ -21,6 +21,21 @@ public class NextScene3 : MonoBehaviour
 
     void MoveScene()
     {
-        SceneManager.LoadScene(3);
+        if (GameObject.Find("repeatCount") == null)
+        {
+            SceneManager.LoadScene(4);
+        }
+        else
+        {
+            if (GameObject.Find("repeatCount").GetComponent<Count>().count == 1)
+            {
+                GameObject.Find("repeatCount").GetComponent<Count>().count++;
+                SceneManager.LoadScene(4);
+            }
+        }
+        
+
     }
+
+    
 }

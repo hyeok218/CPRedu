@@ -21,6 +21,6 @@ public class NextScene : MonoBehaviour
 
     void MoveScene()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 }
