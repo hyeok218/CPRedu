@@ -26,11 +26,11 @@ public class correctBtn : MonoBehaviour
         if (IsOn)
         {
             Debug.Log(barTime);
-            if (barTime <= 2.0f)
+            if (barTime <= 1.0f)
             {
                 barTime += Time.deltaTime;
             }
-            LoadingBar.fillAmount = barTime / 2.0f;
+            LoadingBar.fillAmount = barTime / 1.0f;
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -45,7 +45,7 @@ public class correctBtn : MonoBehaviour
         barTime = 0.0f;
         if (gazedAt)
         {
-            Invoke("goNext", 2.0f);
+            Invoke("goNext", 1.0f);
         }
         else
         {
@@ -56,7 +56,7 @@ public class correctBtn : MonoBehaviour
 
     void goNext()
     {
-        if (barTime >= 1.8f)
+        if (barTime >= 0.8f)
         {
             SceneManager.LoadScene(3);
         }
