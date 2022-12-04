@@ -3,22 +3,62 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+[RequireComponent(typeof(Collider))]
 public class ExitBtn : MonoBehaviour
 {
-    public Button btn;
-    // Start is called before the first frame update
+
+    public Image LoadingBar;
+    private bool IsOn;
+    private float barTime = 0.0f;
+
+
     void Start()
     {
-        btn.onClick.AddListener(ExitProgram);
+        IsOn = false;
+        LoadingBar.fillAmount = 0;
     }
 
-    // Update is called once per frame
+
     void Update()
     {
+        if (IsOn)
+        {
+            Debug.Log(barTime);
+            if (barTime <= 3.0f)
+            {
+                barTime += Time.deltaTime;
+            }
+            LoadingBar.fillAmount = barTime / 3.0f;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
 
     }
-    void ExitProgram()
+    public void SetGazedAt(bool gazedAt)
     {
-        Application.Quit();
+        IsOn = gazedAt;
+        barTime = 0.0f;
+        if (gazedAt)
+        {
+            Invoke("goNext", 3.0f);
+        }
+        else
+        {
+            Debug.Log("Out");
+            LoadingBar.fillAmount = 0;
+        }
+    }
+
+    void goNext()
+    {
+        if (barTime >= 2.8f)
+        {
+            Application.Quit();
+        }
     }
 }
+

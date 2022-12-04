@@ -114,7 +114,9 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetButtonDown("Jump"))
             {
-                m_velocity.y = m_jumpForce;
+            
+                    m_velocity.y = m_jumpForce;
+                
             }
             else if (m_velocity.magnitude > 0.5)
             {

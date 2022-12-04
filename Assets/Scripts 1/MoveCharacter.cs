@@ -6,7 +6,7 @@ public class MoveCharacter : MonoBehaviour
 {
     public GameObject Mycamera;
     private Vector3 goproject;
-
+    bool isGround = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,12 +35,27 @@ public class MoveCharacter : MonoBehaviour
         if (Input.GetKey (KeyCode.D)) {
             transform.Translate(Mycamera.transform.right * 3.0f * Time.deltaTime);
         }
-        if (Input.GetKeyDown(KeyCode.Space)){
-            GetComponent<Rigidbody> ().AddForce (Vector3.up * 300);
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (isGround == true)
+            {
+                isGround = false;
+                GetComponent<Rigidbody>().AddForce(Vector3.up * 300);
+            }
+            
         }
 
+        
 
 
 
+
+    }
+    void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.tag == "Ground")
+        {
+            isGround = true;
+        }
     }
 }

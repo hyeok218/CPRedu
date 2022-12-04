@@ -8,6 +8,7 @@ TagManager:
   - WOMAN
   - MAN
   - AMBULANCE
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - GazeObject
   - 
   - 
   - 

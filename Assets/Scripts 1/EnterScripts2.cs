@@ -1,6 +1,7 @@
-﻿using System.Collections;
+﻿/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnterScripts2 : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class EnterScripts2 : MonoBehaviour
     public GameObject talkPanel4;
     public GameObject nextbtn;
     public int SceneCount = 0;
+    public GameObject prefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -53,9 +55,10 @@ public class EnterScripts2 : MonoBehaviour
         }
         if (SceneCount == 2)
         {
-            nextbtn.SetActive(true);
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;  
+            //nextbtn.SetActive(true);
+            SceneManager.LoadScene(2);
+            SceneCount++;
         }
     }
 }
+*/

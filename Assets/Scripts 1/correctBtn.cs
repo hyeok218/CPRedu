@@ -1,26 +1,65 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
+
+[RequireComponent(typeof(Collider))]
 public class correctBtn : MonoBehaviour
 {
-    public Button btn;
-    // Start is called before the first frame update
+    public Image LoadingBar;
+    private bool IsOn;
+    private float barTime = 0.0f;
+    public int count;
+
+
     void Start()
     {
-        btn.onClick.AddListener(MoveScene);
+        IsOn = false;
+        LoadingBar.fillAmount = 0;
     }
 
-    // Update is called once per frame
+
     void Update()
     {
+        if (IsOn)
+        {
+            Debug.Log(barTime);
+            if (barTime <= 2.0f)
+            {
+                barTime += Time.deltaTime;
+            }
+            LoadingBar.fillAmount = barTime / 2.0f;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
 
     }
-
-    void MoveScene()
+    public void SetGazedAt(bool gazedAt)
     {
-        SceneManager.LoadScene(3);
+        IsOn = gazedAt;
+        barTime = 0.0f;
+        if (gazedAt)
+        {
+            Invoke("goNext", 2.0f);
+        }
+        else
+        {
+            Debug.Log("Out");
+            LoadingBar.fillAmount = 0;
+        }
     }
+
+    void goNext()
+    {
+        if (barTime >= 1.8f)
+        {
+            SceneManager.LoadScene(3);
+        }
+    }
+
 }

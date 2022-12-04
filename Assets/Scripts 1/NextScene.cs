@@ -1,26 +1,54 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(Collider))]
 public class NextScene : MonoBehaviour
 {
-    public Button btn;
-    // Start is called before the first frame update
+
+	public Image LoadingBar;
+	private bool IsOn;
+	private float barTime = 0.0f;
     void Start()
     {
-        btn.onClick.AddListener(MoveScene);
-    }
+		IsOn = false;
+		LoadingBar.fillAmount = 0;
 
-    // Update is called once per frame
-    void Update()
-    {
+	}
 
-    }
+	void Update()
+	{
+		if (IsOn)
+		{
+			if (barTime <= 5.0f)
+			{
+				barTime += Time.deltaTime;
+			}
+			LoadingBar.fillAmount = barTime / 5.0f;
+		}
 
-    void MoveScene()
-    {
-        SceneManager.LoadScene(2);
-    }
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			Application.Quit();
+		}
+
+	}
+	public void SetGazedAt(bool gazedAt)
+	{
+		IsOn = gazedAt;
+		barTime = 0.0f;
+		if (gazedAt)
+		{
+			SceneManager.LoadScene(2);
+		}
+        else
+		{
+			Debug.Log("Out");
+			LoadingBar.fillAmount = 0;
+		}
+
+
+	}
 }
+
