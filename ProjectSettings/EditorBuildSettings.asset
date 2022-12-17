@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Scene4.unity
     guid: c6575bbc6700efa40951e6fbe9c4a02e
   - enabled: 1
+    path: Assets/Scenes/SceneQuiz.unity
+    guid: 4413944595ca4ae4cac18e865039702b
+  - enabled: 1
     path: Assets/Scenes/SceneLast.unity
     guid: c9688c55646c2de48bf7f9834e90a3d9
   m_configObjects: {}
